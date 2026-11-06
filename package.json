@@ -1,22 +1,18 @@
 {
-  "name": "cobe-site",
+  "name": "siddharthkrishna.com",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently -n ws,vite -c blue,green \"node server.mjs\" \"vite\"",
-    "dev:client": "vite",
-    "dev:server": "node server.mjs",
+    "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
   },
   "dependencies": {
     "cobe": "^0.6.5",
-    "concurrently": "^9.2.1",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0",
-    "ws": "^8.19.0"
+    "react-dom": "^19.2.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",

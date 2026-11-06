@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/v", "destination": "https://hello.siddharthkrishna.com/v" },
+    { "source": "/map", "destination": "https://hello.siddharthkrishna.com/map" }
+  ]
+}

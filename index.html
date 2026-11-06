@@ -12,5 +12,6 @@
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>navigator.sendBeacon("/v", JSON.stringify({ host: location.hostname, path: location.pathname + location.search, ref: document.referrer }));</script>
   </body>
 </html>

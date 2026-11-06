@@ -1,6 +1,7 @@
 import { useEffect, useRef, useCallback, useMemo } from "react";
 import createGlobe from "cobe";
 import type { Visitor } from "../hooks/use-visitor-locations";
+import { siteColor } from "../site-colors";
 
 interface GlobeProps {
   visitors: Visitor[];
@@ -22,17 +23,15 @@ export function Globe({ visitors, className }: GlobeProps) {
     () =>
       visitors.map((v) => ({
         location: [v.lat, v.lng] as [number, number],
-        size: v.isYou ? 0.08 : 0.05,
-        color: v.isYou
-          ? ([0.2, 1, 0.5] as [number, number, number])
-          : ([0.3, 0.7, 1] as [number, number, number]),
+        size: 0.05 + Math.min(v.count, 10) * 0.005,
+        color: siteColor(v.host),
       })),
     [visitors]
   );
 
   // Stable string key so the effect re-runs when markers actually change
   const markersKey = useMemo(
-    () => visitors.map((v) => `${v.id}:${v.lat}:${v.lng}`).join(","),
+    () => visitors.map((v) => `${v.id}:${v.count}`).join(","),
     [visitors]
   );
 
